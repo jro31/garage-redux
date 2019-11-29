@@ -14,10 +14,8 @@ export function fetchCars(garage) {
 }
 
 export function selectCar(car) {
-  console.log("🥴")
-  console.log(car)
   return {
     type: SELECTED_CAR,
-    payload: car.id
+    payload: car
   };
 }

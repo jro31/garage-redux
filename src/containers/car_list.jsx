@@ -10,6 +10,7 @@ class CarList extends Component {
   }
 
   render() {
+    console.log("😈")
     console.log(this)
     return (
       <div className="car-list">
