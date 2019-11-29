@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import CarDetails from '../components/car_details';
-import { fetchCars, selectCar } from '../actions';
+import CarDetails from '../containers/car_details';
+import { fetchCars } from '../actions';
 
 class CarList extends Component {
   componentWillMount() {
@@ -10,6 +10,7 @@ class CarList extends Component {
   }
 
   render() {
+    console.log(this)
     return (
       <div className="car-list">
         {
