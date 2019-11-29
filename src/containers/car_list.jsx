@@ -1,15 +1,20 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import Car from '../components/car';
+import CarDetails from '../components/car_details';
+import { fetchCars, selectCar } from '../actions';
 
 class CarList extends Component {
+  componentWillMount() {
+    this.props.fetchCars();
+  }
+
   render() {
     return (
-      <div>
-        { // console.log(this.props.cars.map)
+      <div className="car-list">
+        {
           this.props.cars.map((car) => {
-            return <Car key={car.id} car={car} />;
+            return <CarDetails key={car.id} car={car} />;
           })
         }
       </div>
@@ -20,8 +25,13 @@ class CarList extends Component {
 function mapStateToProps(state) {
   return {
     cars: state.cars,
-    garage: state.garage
+    garage: state.garage,
+    selectedCar: state.selectedCar
   }
 }
 
-export default connect(mapStateToProps)(CarList);
+const mapDispatchToProps = {
+  fetchCars
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(CarList);
