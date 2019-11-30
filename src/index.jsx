@@ -9,6 +9,7 @@ import { createHistory as history } from 'history';
 
 import App from './components/app';
 import carsReducer from './reducers/cars_reducer';
+import selectedCarReducer from './reducers/selected_car_reducer';
 
 import '../assets/stylesheets/application.scss';
 
@@ -29,7 +30,7 @@ const initialState = {
 const reducers = combineReducers({
   garage: (state = null, action) => state,
   cars: carsReducer,
-  selectedCar: carsReducer
+  selectedCar: selectedCarReducer
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
