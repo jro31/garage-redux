@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import reduxPromise from 'redux-promise';
 import logger from 'redux-logger';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import { createHistory as history } from 'history';
 
 import App from './components/app';
@@ -41,7 +41,8 @@ ReactDOM.render(
   <Provider store={store}>
     <Router history={history}>
       <Switch>
-        <App />
+        <Route path="/:garage" component={App} />
+        <Redirect from="/" to="/garage" />
       </Switch>
     </Router>
   </Provider>,
