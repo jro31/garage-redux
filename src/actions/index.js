@@ -21,14 +21,14 @@ export function selectCar(car) {
   };
 }
 
-export function addCar(body) {
-  console.log(this)
-  console.log(body)
+export function addCar(body, callback, garage) {
   const request = fetch(`${BASE_URL}/${garage}/cars`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(body)
   }).then(response => response.json())
+    .then(() => callback());
+
   return {
     type: CAR_ADDED,
     payload: request

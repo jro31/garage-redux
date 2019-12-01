@@ -6,10 +6,12 @@ import { addCar } from '../actions';
 
 class NewCar extends Component {
   onSubmit = (values) => {
-    this.props.addCar(values, (car) => {
-      this.props.history.push('/'); // Navigate after submit
-      return car;
-    });
+    this.props.addCar(
+      values,
+      () =>
+        {this.props.history.push('/'); // Navigate after submit
+      },
+      this.props.garage);
   }
 
   renderField(field) {
@@ -23,7 +25,7 @@ class NewCar extends Component {
 
   render() {
 
-    console.log(this)
+    console.log(this.props)
 
     return (
       <div>

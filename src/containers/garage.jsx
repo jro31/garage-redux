@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 class Garage extends Component {
   render() {
+
     return (
       <div className="garage">
         <div>{this.props.garage}</div>
