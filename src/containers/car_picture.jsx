@@ -5,7 +5,7 @@ class CarPicture extends Component {
   render() {
     return (
       <div className="car">
-        {this.props.selectedCar.brand}
+        {this.props.selectedCar !== null ? this.props.selectedCar.brand : null}
       </div>
     );
   }
