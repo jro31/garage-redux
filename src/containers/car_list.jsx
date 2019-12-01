@@ -6,7 +6,7 @@ import { fetchCars } from '../actions';
 
 class CarList extends Component {
   componentWillMount() {
-    this.props.fetchCars();
+    this.props.fetchCars(this.props.garage);
   }
 
   render() {

@@ -18,7 +18,6 @@ import selectedCarReducer from './reducers/selected_car_reducer';
 
 import '../assets/stylesheets/application.scss';
 
-// const garageName = 'jro31';
 const garageName = prompt("What is your garage name?") || `garage${Math.floor(10 + (Math.random() * 90))}`;
 const initialState = {
   garage: garageName,
