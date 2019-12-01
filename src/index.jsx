@@ -8,13 +8,18 @@ import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-d
 import { createHistory as history } from 'history';
 
 import App from './components/app';
+import NewCar from './containers/new_car';
+
+import { reducer as formReducer } from 'redux-form'; // Had to run 'yarn add redux-form@7.2.0'
+
 import carsReducer from './reducers/cars_reducer';
 import selectedCarReducer from './reducers/selected_car_reducer';
 
+
 import '../assets/stylesheets/application.scss';
 
-const garageName = 'jro31';
-// const garageName = prompt("What is your garage name?") || `garage${Math.floor(10 + (Math.random() * 90))}`;
+// const garageName = 'jro31';
+const garageName = prompt("What is your garage name?") || `garage${Math.floor(10 + (Math.random() * 90))}`;
 const initialState = {
   garage: garageName,
   cars:
@@ -30,7 +35,8 @@ const initialState = {
 const reducers = combineReducers({
   garage: (state = null, action) => state,
   cars: carsReducer,
-  selectedCar: selectedCarReducer
+  selectedCar: selectedCarReducer,
+  form: formReducer
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -41,7 +47,8 @@ ReactDOM.render(
   <Provider store={store}>
     <Router history={history}>
       <Switch>
-        <Route path="/:garage" component={App} />
+        <Route path="/:garage" exact component={App} />
+        <Route path="/car/new" exact component={NewCar} />
         <Redirect from="/" to="/garage" />
       </Switch>
     </Router>
